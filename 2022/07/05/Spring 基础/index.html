@@ -1,0 +1,305 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Spring | 皊樱&amp;Blog</title><meta name="keywords" content="Spring"><meta name="author" content="Rinne"><meta name="copyright" content="Rinne"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Spring 基础Springframework文档：https:&#x2F;&#x2F;spring.io&#x2F;projects&#x2F;spring-framework 什么是 Spring 框架?Spring 是一款开源的轻量级 Java 开发框架，旨在提高开发人员的开发效率以及系统的可维护性。   我们一般说 Spring 框架指的都是 Spring Framework，它是很多模块的集合，使用这些模块可以很方便地协助我">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring">
+<meta property="og:url" content="http://example.com/2022/07/05/Spring%20%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="皊樱&amp;Blog">
+<meta property="og:description" content="Spring 基础Springframework文档：https:&#x2F;&#x2F;spring.io&#x2F;projects&#x2F;spring-framework 什么是 Spring 框架?Spring 是一款开源的轻量级 Java 开发框架，旨在提高开发人员的开发效率以及系统的可维护性。   我们一般说 Spring 框架指的都是 Spring Framework，它是很多模块的集合，使用这些模块可以很方便地协助我">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic.3gbizhi.com/2019/0907/thumb_1680_0_20190907025059552.jpg">
+<meta property="article:published_time" content="2022-07-05T04:30:00.000Z">
+<meta property="article:modified_time" content="2022-09-21T12:01:30.058Z">
+<meta property="article:author" content="Rinne">
+<meta property="article:tag" content="Spring">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic.3gbizhi.com/2019/0907/thumb_1680_0_20190907025059552.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2022/07/05/Spring%20%E5%9F%BA%E7%A1%80/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Rinne","link":"链接: ","source":"来源: 皊樱&Blog","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Spring',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-09-21 20:01:30'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/avatarbg.css"><meta name="generator" content="Hexo 6.2.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://pic.3gbizhi.com/2020/0715/thumb_1680_0_20200715035454397.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">皊樱&amp;Blog</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 时间轴</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fa fa-heartbeat"></i><span> 清单</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/Gallery/"><i class="fa-fw fas fa-images"></i><span> 照片</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> 电影</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Spring</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-07-05T04:30:00.000Z" title="发表于 2022-07-05 12:30:00">2022-07-05</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-21T12:01:30.058Z" title="更新于 2022-09-21 20:01:30">2022-09-21</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Spring"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="Spring-基础"><a href="#Spring-基础" class="headerlink" title="Spring 基础"></a>Spring 基础</h2><p>Springframework文档：<a target="_blank" rel="noopener" href="https://spring.io/projects/spring-framework">https://spring.io/projects/spring-framework</a></p>
+<h3 id="什么是-Spring-框架"><a href="#什么是-Spring-框架" class="headerlink" title="什么是 Spring 框架?"></a>什么是 Spring 框架?</h3><p>Spring 是一款开源的轻量级 Java 开发框架，旨在提高开发人员的开发效率以及系统的可维护性。 </p>
+<blockquote>
+<p>我们一般说 Spring 框架指的都是 Spring Framework，它是很多模块的集合，使用这些模块可以很方便地协助我们进行开发，比如说 Spring 支持 IoC（Inverse of Control:控制反转） 和 AOP(Aspect-Oriented Programming:面向切面编程)、可以很方便地对数据库进行访问、可以很方便地集成第三方组件（电子邮件，任务，调度，缓存等等）、对单元测试支持比较好、支持 RESTful Java 应用程序的开发。</p>
+</blockquote>
+<p>Spring 最核心的思想就是不重新造轮子，开箱即用，提高开发效率。  </p>
+<p><strong>Spring 5.x版本模块：</strong><br><img src="https://raw.githubusercontent.com/Rinnezzz/images/main/20220921153254.png"><br>Spring 各个模块的依赖关系如下：<br><img src="https://raw.githubusercontent.com/Rinnezzz/images/main/20220921153658.png"><br><strong>Core Container</strong><br>Spring 框架的核心模块，也可以说是基础模块，主要提供 IoC 依赖注入功能的支持。Spring 其他所有的功能基本都需要依赖于该模块，我们从上面那张 Spring 各个模块的依赖关系图就可以看出来。</p>
+<ul>
+<li>spring-core ：Spring 框架基本的核心工具类。</li>
+<li>spring-beans ：提供对 bean 的创建、配置和管理等功能的支持。</li>
+<li>spring-context ：提供对国际化、事件传播、资源加载等功能的支持。</li>
+<li>spring-expression ：提供对表达式语言（Spring Expression Language） SpEL 的支持，只依赖于 core 模块，不依赖于其他模块，可以单独使用。<br><strong>AOP</strong></li>
+<li>spring-aspects ：该模块为与 AspectJ 的集成提供支持。</li>
+<li>spring-aop ：提供了面向切面的编程实现。</li>
+<li>spring-instrument ：提供了为 JVM 添加代理（agent）的功能。 具体来讲，它为 Tomcat 提供了一个织入代理，能够为 Tomcat 传递类文 件，就像这些文件是被类加载器加载的一样。没有理解也没关系，这个模块的使用场景非常有限。<br><strong>Data Access&#x2F;Integration</strong><br>spring-jdbc ：提供了对数据库访问的抽象 JDBC。不同的数据库都有自己独立的 API 用于操作数据库，而 Java 程序只需要和 JDBC API 交互，这样就屏蔽了数据库的影响。</li>
+<li>spring-tx ：提供对事务的支持。</li>
+<li>spring-orm ： 提供对 Hibernate、JPA 、iBatis 等 ORM 框架的支持。</li>
+<li>spring-oxm ：提供一个抽象层支撑 OXM(Object-to-XML-Mapping)，例如：JAXB、Castor、XMLBeans、JiBX 和 XStream 等。</li>
+<li>spring-jms : 消息服务。自 Spring Framework 4.1 以后，它还提供了对 spring-messaging 模块的继承。<br><strong>Spring Web</strong></li>
+<li>spring-web ：对 Web 功能的实现提供一些最基础的支持。</li>
+<li>spring-webmvc ： 提供对 Spring MVC 的实现。</li>
+<li>spring-websocket ： 提供了对 WebSocket 的支持，WebSocket 可以让客户端和服务端进行双向通信。</li>
+<li>spring-webflux ：提供对 WebFlux 的支持。WebFlux 是 Spring Framework 5.0 中引入的新的响应式框架。与 Spring MVC 不同，它不需要 Servlet API，是完全异步。</li>
+</ul>
+<p><strong>Messaging</strong><br>spring-messaging 是从 Spring4.0 开始新加入的一个模块，主要职责是为 Spring 框架集成一些基础的报文传送应用。</p>
+<p><strong>Spring Test</strong><br>Spring 团队提倡测试驱动开发（TDD）。有了控制反转 (IoC)的帮助，单元测试和集成测试变得更简单。<br>Spring 的测试模块对 JUnit（单元测试框架）、TestNG（类似 JUnit）、Mockito（主要用来 Mock 对象）、PowerMock（解决 Mockito 的问题比如无法模拟 final, static， private 方法）等等常用的测试框架支持的都比较好。</p>
+<h3 id="SpringMVC"><a href="#SpringMVC" class="headerlink" title="SpringMVC"></a>SpringMVC</h3><p>Spring MVC 是 Spring 中的一个很重要的模块，主要赋予 Spring 快速构建 MVC 架构的 Web 程序的能力。MVC 是模型(Model)、视图(View)、控制器(Controller)的简写，其核心思想是通过将业务逻辑、数据、显示分离来组织代码。<br><img src="https://raw.githubusercontent.com/Rinnezzz/images/main/20220921155157.png"></p>
+<blockquote>
+<p>Spring Web 模型-视图-控制器 (MVC) 框架围绕 DispatcherServlet将请求分派给处理程序而设计，具有可配置的处理程序映射、视图分辨率、语言环境、时区和主题分辨率以及对上传文件的支持。默认处理程序基于@Controller和@RequestMapping 注解，提供范围广泛的灵活处理方法。随着 Spring 3.0 的引入，该@Controller机制还允许您通过@PathVariable注解和其他功能创建 RESTful Web 站点和应用程序。</p>
+</blockquote>
+<hr>
+<h2 id="Spring-IoC"><a href="#Spring-IoC" class="headerlink" title="Spring IoC"></a>Spring IoC</h2><h3 id="IoC（控制反转）"><a href="#IoC（控制反转）" class="headerlink" title="IoC（控制反转）"></a><strong>IoC（控制反转）</strong></h3><p>IoC（Inverse of Control:控制反转） 是一种设计思想，而不是一个具体的技术实现。由spring来负责控制对象的生命周期和对象间的关系。而Spring提供了IOC容器来帮我们生成所需要的对象。也就是说在我们原先的对象中有用到其他对象的地方Spring会帮我们来注入。不用我们再去考虑这些问题。<br><strong>什么叫控制反转？</strong></p>
+<ul>
+<li>控制 ：指的是对象创建（实例化、管理）的权力。</li>
+<li>反转 ：控制权交给外部环境（Spring 框架、IoC 容器）。<br><img src="https://raw.githubusercontent.com/Rinnezzz/images/main/20220921180834.png"></li>
+</ul>
+<p> <strong>DI（依赖注入）</strong><br>spring提供了三种方式来依赖注入，有构造方法注入，setter方法注入以及接口注入。<br>依赖注入的三种方式参考：<a target="_blank" rel="noopener" href="https://blog.csdn.net/mingyuli/article/details/119516194">https://blog.csdn.net/mingyuli/article/details/119516194</a></p>
+<blockquote>
+<p>使用构造方法注入需要注意的一点就是要避免循环依赖。所谓的循环依赖指的就是在A对象的构造方法中Spring要注入B，而在B对象中Spring要注入A。这个时候会形成一个闭环因为Spring不知道该先注入哪一个接着会抛出异常。而Spring建议的处理方式是说如果遇到这种情况的话就改用Setter方式注入。</p>
+</blockquote>
+<ul>
+<li>[一篇文章读懂IoC和AOP](<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&amp;mid=2247486938&amp;idx=1&amp;sn=c99ef0233f39a5ffc1b98c81e02dfcd4&amp;chksm=cea24211f9d5cb07fa901183ba4d96187820713a72387788408040822ffb2ed575d28e953ce7&amp;token=1736772241&amp;lang=zh_CN#rd%EF%BC%8C%E2%80%9C%E9%9D%A2%E8%AF%95%E8%A2%AB%E9%97%AE%E4%BA%86%E5%87%A0%E7%99%BE%E9%81%8D%E7%9A%84">https://mp.weixin.qq.com/s?__biz=Mzg2OTA0Njk0OA==&amp;mid=2247486938&amp;idx=1&amp;sn=c99ef0233f39a5ffc1b98c81e02dfcd4&amp;chksm=cea24211f9d5cb07fa901183ba4d96187820713a72387788408040822ffb2ed575d28e953ce7&amp;token=1736772241&amp;lang=zh_CN#rd，“面试被问了几百遍的</a> IoC 和 AOP ，还在傻傻搞不清楚”)</li>
+</ul>
+<h3 id="将一个类声明为-Bean-的注解有哪些"><a href="#将一个类声明为-Bean-的注解有哪些" class="headerlink" title="将一个类声明为 Bean 的注解有哪些?"></a>将一个类声明为 Bean 的注解有哪些?</h3><ul>
+<li>@Component ：通用的注解，可标注任意类为 Spring 组件。如果一个 Bean 不知道属于哪个层，可以使用@Component 注解标注。</li>
+<li>@Repository : 对应持久层即 Dao 层，主要用于数据库相关操作。</li>
+<li>@Service : 对应服务层，主要涉及一些复杂的逻辑，需要用到 Dao 层。</li>
+<li>@Controller : 对应 Spring MVC 控制层，主要用户接受用户请求并调用 Service 层返回数据给前端页面。</li>
+</ul>
+<h3 id="Component-和-Bean-的区别？"><a href="#Component-和-Bean-的区别？" class="headerlink" title="@Component 和 @Bean 的区别？"></a>@Component 和 @Bean 的区别？</h3><ul>
+<li>@Component 注解作用于类，而@Bean注解作用于方法。</li>
+<li>@Component通常是通过类路径扫描来自动侦测以及自动装配到 Spring 容器中（我们可以使用</li>
+<li>@ComponentScan 注解定义要扫描的路径从中找出标识了需要装配的类自动装配到 Spring 的 bean 容器中）。@Bean 注解通常是我们在标有该注解的方法中定义产生这个 bean,@Bean告诉了 Spring 这是某个类的实例，当我需要用它的时候还给我。</li>
+<li>@Bean 注解比 @Component 注解的自定义性更强，而且很多地方我们只能通过 @Bean 注解来注册 bean。比如当我们引用第三方库中的类需要装配到 Spring容器时，则只能通过 @Bean来实现。<br>@Bean注解使用示例：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">AppConfig</span> &#123;</span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> TransferService <span class="title function_">transferService</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">TransferServiceImpl</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+上面的代码相当于下面的 xml 配置</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;beans&gt;</span><br><span class="line">    &lt;bean id=&quot;transferService&quot; class=&quot;com.acme.TransferServiceImpl&quot;/&gt;</span><br><span class="line">&lt;/beans&gt;</span><br></pre></td></tr></table></figure>
+<p>下面这个例子是通过 @Component 无法实现的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="keyword">public</span> OneService <span class="title function_">getService</span><span class="params">(status)</span> &#123;</span><br><span class="line">    <span class="keyword">case</span> (status)  &#123;</span><br><span class="line">        when <span class="number">1</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">serviceImpl1</span>();</span><br><span class="line">        when <span class="number">2</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">serviceImpl2</span>();</span><br><span class="line">        when <span class="number">3</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">serviceImpl3</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="注入-Bean-的注解有哪些？"><a href="#注入-Bean-的注解有哪些？" class="headerlink" title="注入 Bean 的注解有哪些？"></a>注入 Bean 的注解有哪些？</h3><p>Spring 内置的 <code>@Autowired</code> 以及 JDK 内置的 <code>@Resource</code> 和 <code>@Inject</code> 都可以用于注入 Bean。</p>
+<table>
+<thead>
+<tr>
+<th>Annotaion</th>
+<th>Package</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>@Autowired</code></td>
+<td><code>org.springframework.bean.factory</code></td>
+<td>Spring 2.5+</td>
+</tr>
+<tr>
+<td><code>@Resource</code></td>
+<td><code>javax.annotation</code></td>
+<td>Java JSR-250</td>
+</tr>
+<tr>
+<td><code>@Inject</code></td>
+<td><code>javax.inject</code></td>
+<td>Java JSR-330</td>
+</tr>
+</tbody></table>
+<p><code>@Autowired</code> 和<code>@Resource</code>使用的比较多一些。</p>
+<h3 id="Autowired-和-Resource-的区别是什么？"><a href="#Autowired-和-Resource-的区别是什么？" class="headerlink" title="@Autowired 和 @Resource 的区别是什么？"></a>@Autowired 和 @Resource 的区别是什么？</h3><p>Autowired 属于 Spring 内置的注解，默认的注入方式为byType（根据类型进行匹配），也就是说会优先根据接口类型去匹配并注入 Bean （接口的实现类）。<br>这会有什么问题呢？ 当一个接口存在多个实现类的话，byType这种方式就无法正确注入对象了，因为这个时候 Spring 会同时找到多个满足条件的选择，默认情况下它自己不知道选择哪一个。<br>这种情况下，注入方式会变为 byName（根据名称进行匹配），这个名称通常就是类名（首字母小写）。就比如说下面代码中的 smsService 就是我这里所说的名称，这样应该比较好理解了吧。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// smsService 就是我们上面所说的名称</span></span><br><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> SmsService smsService;</span><br></pre></td></tr></table></figure>
+<p>举个例子，SmsService 接口有两个实现类: SmsServiceImpl1和 SmsServiceImpl2，且它们都已经被 Spring 容器所管理。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 报错，byName 和 byType 都无法匹配到 bean</span></span><br><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> SmsService smsService;</span><br><span class="line"><span class="comment">// 正确注入 SmsServiceImpl1 对象对应的 bean</span></span><br><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> SmsService smsServiceImpl1;</span><br><span class="line"><span class="comment">// 正确注入  SmsServiceImpl1 对象对应的 bean</span></span><br><span class="line"><span class="comment">// smsServiceImpl1 就是我们上面所说的名称</span></span><br><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="meta">@Qualifier(value = &quot;smsServiceImpl1&quot;)</span></span><br><span class="line"><span class="keyword">private</span> SmsService smsService;</span><br></pre></td></tr></table></figure>
+<p>我们还是建议通过 @Qualifier 注解来显示指定名称而不是依赖变量的名称。</p>
+<ul>
+<li>@Resource属于 JDK 提供的注解，默认注入方式为 byName。如果无法通过名称匹配到对应的 Bean 的话，注入方式会变为byType。  </li>
+<li>@Resource 有两个比较重要且日常开发常用的属性：name（名称）、type（类型）。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> Resource &#123;</span><br><span class="line">    String <span class="title function_">name</span><span class="params">()</span> <span class="keyword">default</span> <span class="string">&quot;&quot;</span>;</span><br><span class="line">    Class&lt;?&gt; type() <span class="keyword">default</span> Object.class;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+如果仅指定 name 属性则注入方式为byName，如果仅指定type属性则注入方式为byType，如果同时指定name 和type属性（不建议这么做）则注入方式为byType+byName。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 报错，byName 和 byType 都无法匹配到 bean</span></span><br><span class="line"><span class="meta">@Resource</span></span><br><span class="line"><span class="keyword">private</span> SmsService smsService;</span><br><span class="line"><span class="comment">// 正确注入 SmsServiceImpl1 对象对应的 bean</span></span><br><span class="line"><span class="meta">@Resource</span></span><br><span class="line"><span class="keyword">private</span> SmsService smsServiceImpl1;</span><br><span class="line"><span class="comment">// 正确注入 SmsServiceImpl1 对象对应的 bean（比较推荐这种方式）</span></span><br><span class="line"><span class="meta">@Resource(name = &quot;smsServiceImpl1&quot;)</span></span><br><span class="line"><span class="keyword">private</span> SmsService smsService;</span><br></pre></td></tr></table></figure>
+<strong>总结：</strong></li>
+<li>@Autowired 是 Spring 提供的注解，@Resource 是 JDK 提供的注解。</li>
+<li>Autowired 默认的注入方式为byType（根据类型进行匹配），@Resource默认注入方式为 byName（根据名称进行匹配）。</li>
+<li>当一个接口存在多个实现类的情况下，@Autowired 和@Resource都需要通过名称才能正确匹配到对应的 Bean。Autowired 可以通过 @Qualifier 注解来显示指定名称，@Resource可以通过 name 属性来显示指定名称。</li>
+</ul>
+<h3 id="Spring-中-Bean-的作用域通常有下面几种："><a href="#Spring-中-Bean-的作用域通常有下面几种：" class="headerlink" title="Spring 中 Bean 的作用域通常有下面几种："></a>Spring 中 Bean 的作用域通常有下面几种：</h3><ul>
+<li><p>singleton : IoC 容器中只有唯一的 bean 实例。Spring 中的 bean 默认都是单例的，是对单例设计模式的应用。</p>
+</li>
+<li><p>prototype : 每次获取都会创建一个新的 bean 实例。也就是说，连续 getBean() 两次，得到的是不同的 Bean 实例。</p>
+</li>
+<li><p>request （仅 Web 应用可用）: 每一次 HTTP 请求都会产生一个新的 bean（请求 bean），该 bean 仅在当前 HTTP request 内有效。</p>
+</li>
+<li><p>session （仅 Web 应用可用） : 每一次来自新 session 的 HTTP 请求都会产生一个新的 bean（会话 bean），该 bean 仅在当前 HTTP session 内有效。</p>
+</li>
+<li><p>application&#x2F;global-session （仅 Web 应用可用）： 每个 Web 应用在启动时创建一个 Bean（应用 Bean），，该 bean 仅在当前应用启动时间内有效。</p>
+</li>
+<li><p>websocket （仅 Web 应用可用）：每一次 WebSocket 会话产生一个新的 bean。</p>
+</li>
+</ul>
+<p><strong>Bean的作用域详解：</strong><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44474742/article/details/110369634">https://blog.csdn.net/weixin_44474742/article/details/110369634</a><br><strong>如何配置 bean 的作用域呢？</strong><br>xml 方式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;bean id=<span class="string">&quot;...&quot;</span> class=<span class="string">&quot;...&quot;</span> scope=<span class="string">&quot;singleton&quot;</span>&gt;&lt;/bean&gt;</span><br></pre></td></tr></table></figure>
+<p>注解方式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line"><span class="meta">@Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)</span></span><br><span class="line"><span class="keyword">public</span> Person <span class="title function_">personPrototype</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Person</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Bean-的生命周期"><a href="#Bean-的生命周期" class="headerlink" title="Bean 的生命周期"></a>Bean 的生命周期</h3><blockquote>
+<p>以下内容为此篇文章的总结，详细阅读<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_35634181/article/details/104473308?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1-104473308-blog-118073248.t0_edu_mix&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~CTRLIST~Rate-1-104473308-blog-118073248.t0_edu_mix&utm_relevant_index=1">Spring中bean的生命周期</a></p>
+</blockquote>
+<p>Spring Bean的生命周期分为四个阶段和多个扩展点。扩展点又可以分为影响多个Bean和影响单个Bean。整理如下：<br><strong>四个阶段:</strong></p>
+<ul>
+<li>实例化 Instantiation</li>
+<li>属性赋值 Populate</li>
+<li>初始化 Initialization</li>
+<li>销毁 Destruction</li>
+</ul>
+<p><strong>多个扩展点：</strong><br><strong>1. 影响多个Bean</strong></p>
+<ul>
+<li>BeanPostProcessor </li>
+<li>postProcessBeforeInitialization</li>
+<li>postProcessAfterInitialization</li>
+<li>InstantiationAwareBeanPostProcessor</li>
+<li>postProcessBeforeInstantiation</li>
+<li>postProcessAfterInstantiation</li>
+<li>postProcessPropertyValues</li>
+<li>MergedBeanDefinitionPostProcessor</li>
+<li>postProcessMergedBeanDefinition</li>
+<li>SmartInstantiationAwareBeanPostProcessor</li>
+<li>determineCandidateConstructors</li>
+<li>getEarlyBeanReference<br><strong>2. 影响单个Bean：</strong></li>
+<li><ul>
+<li>Aware</li>
+</ul>
+</li>
+<li>Aware Group1（调用invokeInitMethods方法）</li>
+<li>BeanNameAware</li>
+<li>BeanClassLoaderAware</li>
+<li>BeanFactoryAware</li>
+<li>Aware Group2（调用Aware和BeanPostProcessor# postProcessBeforeInitialization方法）</li>
+<li>EnvironmentAware</li>
+<li>EmbeddedValueResolverAware</li>
+<li>ApplicationContextAware(ResourceLoaderAware\ApplicationEventPublisherAware\MessageSourceAware)</li>
+</ul>
+<p><strong>生命周期</strong></p>
+<ul>
+<li>InitializingBean</li>
+<li>DisposableBean</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Rinne</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/07/05/Spring%20%E5%9F%BA%E7%A1%80/">http://example.com/2022/07/05/Spring%20%E5%9F%BA%E7%A1%80/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">皊樱&Blog</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Spring/">Spring</a></div><div class="post_share"><div class="social-share" data-image="https://pic.3gbizhi.com/2019/0907/thumb_1680_0_20190907025059552.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/gh/overtrue/share.js@master/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2022/06/27/Java%E5%9F%BA%E7%A1%8003/"><img class="next-cover" src="https://pic.3gbizhi.com/2019/0912/thumb_1680_0_20190912025704904.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Java基础03</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Rinne</div><div class="author-info__description">--花开花败总归尘--</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">6</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring-%E5%9F%BA%E7%A1%80"><span class="toc-number">1.</span> <span class="toc-text">Spring 基础</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-Spring-%E6%A1%86%E6%9E%B6"><span class="toc-number">1.1.</span> <span class="toc-text">什么是 Spring 框架?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SpringMVC"><span class="toc-number">1.2.</span> <span class="toc-text">SpringMVC</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring-IoC"><span class="toc-number">2.</span> <span class="toc-text">Spring IoC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#IoC%EF%BC%88%E6%8E%A7%E5%88%B6%E5%8F%8D%E8%BD%AC%EF%BC%89"><span class="toc-number">2.1.</span> <span class="toc-text">IoC（控制反转）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86%E4%B8%80%E4%B8%AA%E7%B1%BB%E5%A3%B0%E6%98%8E%E4%B8%BA-Bean-%E7%9A%84%E6%B3%A8%E8%A7%A3%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="toc-number">2.2.</span> <span class="toc-text">将一个类声明为 Bean 的注解有哪些?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Component-%E5%92%8C-Bean-%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="toc-number">2.3.</span> <span class="toc-text">@Component 和 @Bean 的区别？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%A8%E5%85%A5-Bean-%E7%9A%84%E6%B3%A8%E8%A7%A3%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F"><span class="toc-number">2.4.</span> <span class="toc-text">注入 Bean 的注解有哪些？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Autowired-%E5%92%8C-Resource-%E7%9A%84%E5%8C%BA%E5%88%AB%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">2.5.</span> <span class="toc-text">@Autowired 和 @Resource 的区别是什么？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Spring-%E4%B8%AD-Bean-%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%80%9A%E5%B8%B8%E6%9C%89%E4%B8%8B%E9%9D%A2%E5%87%A0%E7%A7%8D%EF%BC%9A"><span class="toc-number">2.6.</span> <span class="toc-text">Spring 中 Bean 的作用域通常有下面几种：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Bean-%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">2.7.</span> <span class="toc-text">Bean 的生命周期</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/07/05/Spring%20%E5%9F%BA%E7%A1%80/" title="Spring"><img src="https://pic.3gbizhi.com/2019/0907/thumb_1680_0_20190907025059552.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Spring"/></a><div class="content"><a class="title" href="/2022/07/05/Spring%20%E5%9F%BA%E7%A1%80/" title="Spring">Spring</a><time datetime="2022-07-05T04:30:00.000Z" title="发表于 2022-07-05 12:30:00">2022-07-05</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/27/Java%E5%9F%BA%E7%A1%8003/" title="Java基础03"><img src="https://pic.3gbizhi.com/2019/0912/thumb_1680_0_20190912025704904.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java基础03"/></a><div class="content"><a class="title" href="/2022/06/27/Java%E5%9F%BA%E7%A1%8003/" title="Java基础03">Java基础03</a><time datetime="2022-06-27T04:30:00.000Z" title="发表于 2022-06-27 12:30:00">2022-06-27</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/25/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/" title="算法基础"><img src="https://pic.3gbizhi.com/2020/0914/thumb_1680_0_20200914111243735.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="算法基础"/></a><div class="content"><a class="title" href="/2022/06/25/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/" title="算法基础">算法基础</a><time datetime="2022-06-25T15:22:33.000Z" title="发表于 2022-06-25 23:22:33">2022-06-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/24/Java%E5%9F%BA%E7%A1%8002/" title="Java基础02"><img src="https://pic.3gbizhi.com/2019/0912/thumb_1680_0_20190912025704904.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java基础02"/></a><div class="content"><a class="title" href="/2022/06/24/Java%E5%9F%BA%E7%A1%8002/" title="Java基础02">Java基础02</a><time datetime="2022-06-24T13:21:00.000Z" title="发表于 2022-06-24 21:21:00">2022-06-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/06/23/Java%E5%9F%BA%E7%A1%8001/" title="Java基础01"><img src="https://pic.3gbizhi.com/2019/0912/20190912025704904.jpg.278.154.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java基础01"/></a><div class="content"><a class="title" href="/2022/06/23/Java%E5%9F%BA%E7%A1%8001/" title="Java基础01">Java基础01</a><time datetime="2022-06-23T15:00:00.000Z" title="发表于 2022-06-23 23:00:00">2022-06-23</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://pic.3gbizhi.com/2020/0715/thumb_1680_0_20200715035454397.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Rinne</div><div class="footer_custom_text">你随便坐，我去给你泡杯茶 🍵</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><div class="js-pjax"></div><script src="/js/footer.js"></script><script src="/js/snowflake.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
